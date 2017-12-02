@@ -24,6 +24,18 @@ public class TreasureInteraction : MonoBehaviour {
         treasure.transform.position = m_transform.position;
     }
 
+    void CollectRewards()
+    {
+        var treasuresList = m_playerData.GetAllItems();
+        for (int i = 0; i < treasuresList.Count; i++)
+        {
+            var treasure = treasuresList[i];
+            m_playerData.AddScore(treasure.GetValue());
+        }
+
+        m_playerData.ClearInventory();
+    }
+
     private void Update()
     {
         if (InputManager.Instance.GetButtonDown(InputManager.Button.ThrowItem))
@@ -33,6 +45,14 @@ public class TreasureInteraction : MonoBehaviour {
             {
                 ThrowTreasure(treasureList[treasureList.Count - 1]);
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("CollectZone"))
+        {
+            CollectRewards();
         }
     }
 

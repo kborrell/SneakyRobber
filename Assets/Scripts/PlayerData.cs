@@ -6,9 +6,8 @@ public class PlayerData : MonoBehaviour {
 
     public void ResetPlayerData()
     {
-        m_currentWeight = 0.0f;
         m_playerScore = 0;
-        m_inventory.Clear();
+        ClearInventory();
     }
 
     public int GetNumItems()
@@ -34,7 +33,6 @@ public class PlayerData : MonoBehaviour {
     public void AddTreasureToInventory(TreasureData data)
     {
         m_inventory.Add(data);
-        AddScore(data.GetValue());
         AddWeight(data.GetWeight());
     }
 
@@ -51,24 +49,19 @@ public class PlayerData : MonoBehaviour {
         if (m_inventory.Contains(data))
         {
             m_inventory.Remove(data);
-            RemoveScore(data.GetValue());
             RemoveWeight(data.GetWeight());
         }
     }
 
-    public void CleanInventory()
+    public void ClearInventory()
     {
         m_inventory.Clear();
+        m_currentWeight = 0.0f;
     }
 
     public void AddScore(int score)
     {
         m_playerScore += score;
-    }
-
-    public void RemoveScore(int score)
-    {
-        m_playerScore -= score;
     }
 
     public int GetScore()
