@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentWeight: 0
-  m_maxSpeed: 50
+  m_maxSpeed: 20
 --- !u!114 &114904665727515256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -181,4 +181,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_allowDiagonals: 1
   m_smoothValue: 10
-  m_playerSpeed: 15

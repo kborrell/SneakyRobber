@@ -11,7 +11,8 @@ public class InputManager {
         Right,
         Up,
         Down,
-        Action
+        PickItem,
+        ThrowItem
     }
 
     public bool GetButton(Button button)
@@ -32,9 +33,13 @@ public class InputManager {
         {
             return Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
         }
-        else if (button == Button.Action)
+        else if (button == Button.PickItem)
         {
             return Input.GetKey(KeyCode.E);
+        }
+        else if (button == Button.ThrowItem)
+        {
+            return Input.GetKey(KeyCode.F);
         }
 
         return false;
@@ -58,9 +63,13 @@ public class InputManager {
         {
             return Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow);
         }
-        else if (button == Button.Action)
+        else if (button == Button.PickItem)
         {
             return Input.GetKeyUp(KeyCode.E);
+        }
+        else if (button == Button.ThrowItem)
+        {
+            return Input.GetKeyUp(KeyCode.F);
         }
 
         return false;
@@ -84,9 +93,13 @@ public class InputManager {
         {
             return Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow);
         }
-        else if (button == Button.Action)
+        else if (button == Button.PickItem)
         {
             return Input.GetKeyDown(KeyCode.E);
+        }
+        else if (button == Button.ThrowItem)
+        {
+            return Input.GetKeyDown(KeyCode.F);
         }
 
         return false;
