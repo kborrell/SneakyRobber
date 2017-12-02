@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerData))]
 public class MovementComponent : MonoBehaviour {
 
     private void Awake()
     {
         m_rigidBody = GetComponent<Rigidbody>();
         m_transform = GetComponent<Transform>();
+        m_playerData = GetComponent<PlayerData>();
 
         m_directionsMap[InputManager.Button.Right] = Vector3.right;
         m_directionsMap[InputManager.Button.Left] = Vector3.left;
@@ -19,7 +21,7 @@ public class MovementComponent : MonoBehaviour {
     {
         if (m_allowDiagonals)
         {
-            float timeFactor = Time.deltaTime * m_playerSpeed;
+            float timeFactor = Time.deltaTime * m_playerData.GetCurrentSpeed();
 
             m_newDirection = Vector3.zero;
             if (InputManager.Instance.GetButton(InputManager.Button.Right) || InputManager.Instance.GetButton(InputManager.Button.Left))
@@ -87,7 +89,10 @@ public class MovementComponent : MonoBehaviour {
     private void FixedUpdate()
     {
         m_rigidBody.MovePosition(m_transform.position + m_currentDirection);
-        m_transform.GetChild(0).localRotation = Quaternion.LookRotation(m_currentDirection);
+        if (m_currentDirection != Vector3.zero)
+        {
+            m_transform.GetChild(0).localRotation = Quaternion.LookRotation(m_currentDirection);
+        }
     }
 
     private void OnGUI()
@@ -111,13 +116,13 @@ public class MovementComponent : MonoBehaviour {
 
     public bool  m_allowDiagonals;
     public float m_smoothValue;
-    public float m_playerSpeed;
     public Dictionary<InputManager.Button, Vector3> m_directionsMap = new Dictionary<InputManager.Button, Vector3>();
 
     private Stack<InputManager.Button> m_pressedButtons = new Stack<InputManager.Button>();
     private Vector3   m_currentDirection;
     private Vector3   m_newDirection;
 
+    private PlayerData m_playerData;
     private Transform  m_transform;
     private Rigidbody  m_rigidBody;
 }
