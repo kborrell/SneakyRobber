@@ -20,22 +20,22 @@ public class MovementComponent : MonoBehaviour {
         if (InputManager.Instance.GetButtonDown(InputManager.Button.Right))
         {
             m_pressedButtons.Push(InputManager.Button.Right);
-            m_currentDirection = m_directionsMap[InputManager.Button.Right];
+            m_newDirection = m_directionsMap[InputManager.Button.Right];
         }
         else if (InputManager.Instance.GetButtonDown(InputManager.Button.Left))
         {
             m_pressedButtons.Push(InputManager.Button.Left);
-            m_currentDirection = m_directionsMap[InputManager.Button.Left];
+            m_newDirection = m_directionsMap[InputManager.Button.Left];
         }
         else if (InputManager.Instance.GetButtonDown(InputManager.Button.Up))
         {
             m_pressedButtons.Push(InputManager.Button.Up);
-            m_currentDirection = m_directionsMap[InputManager.Button.Up];
+            m_newDirection = m_directionsMap[InputManager.Button.Up];
         }
         else if (InputManager.Instance.GetButtonDown(InputManager.Button.Down))
         {
             m_pressedButtons.Push(InputManager.Button.Down);
-            m_currentDirection = m_directionsMap[InputManager.Button.Down];
+            m_newDirection = m_directionsMap[InputManager.Button.Down];
         }
 
         if (m_pressedButtons.Count > 0 && InputManager.Instance.GetButtonUp(m_pressedButtons.Peek()))
@@ -47,12 +47,21 @@ public class MovementComponent : MonoBehaviour {
 
             if (m_pressedButtons.Count > 0)
             {
-                m_currentDirection = m_directionsMap[m_pressedButtons.Peek()];
+                m_newDirection = m_directionsMap[m_pressedButtons.Peek()];
             }
             else
             {
-                m_currentDirection = Vector3.zero;
+                m_newDirection = Vector3.zero;
             }
+        }
+
+        if (m_currentDirection == Vector3.zero || m_newDirection == Vector3.zero)
+        {
+            m_currentDirection = Vector3.Lerp(m_currentDirection, m_newDirection, Time.deltaTime * m_smoothValue);
+        }
+        else
+        {
+            m_currentDirection = m_newDirection;
         }
     }
 
@@ -80,11 +89,13 @@ public class MovementComponent : MonoBehaviour {
         GUILayout.Label(status);
     }
 
+    public float m_smoothValue;
     public float m_playerSpeed;
     public Dictionary<InputManager.Button, Vector3> m_directionsMap = new Dictionary<InputManager.Button, Vector3>();
 
     private Stack<InputManager.Button> m_pressedButtons = new Stack<InputManager.Button>();
     private Vector3   m_currentDirection;
+    private Vector3   m_newDirection;
 
     private Transform m_transform;
     private Rigidbody m_rigidBody;
