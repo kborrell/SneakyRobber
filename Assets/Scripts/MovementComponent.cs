@@ -17,57 +17,77 @@ public class MovementComponent : MonoBehaviour {
 
     private void Update()
     {
-        if (InputManager.Instance.GetButtonDown(InputManager.Button.Right))
+        if (m_allowDiagonals)
         {
-            m_pressedButtons.Push(InputManager.Button.Right);
-            m_newDirection = m_directionsMap[InputManager.Button.Right];
-        }
-        else if (InputManager.Instance.GetButtonDown(InputManager.Button.Left))
-        {
-            m_pressedButtons.Push(InputManager.Button.Left);
-            m_newDirection = m_directionsMap[InputManager.Button.Left];
-        }
-        else if (InputManager.Instance.GetButtonDown(InputManager.Button.Up))
-        {
-            m_pressedButtons.Push(InputManager.Button.Up);
-            m_newDirection = m_directionsMap[InputManager.Button.Up];
-        }
-        else if (InputManager.Instance.GetButtonDown(InputManager.Button.Down))
-        {
-            m_pressedButtons.Push(InputManager.Button.Down);
-            m_newDirection = m_directionsMap[InputManager.Button.Down];
-        }
+            float timeFactor = Time.deltaTime * m_playerSpeed;
 
-        if (m_pressedButtons.Count > 0 && InputManager.Instance.GetButtonUp(m_pressedButtons.Peek()))
-        {
-            while (m_pressedButtons.Count > 0 && !InputManager.Instance.GetButton(m_pressedButtons.Peek()))
+            m_newDirection = Vector3.zero;
+            if (InputManager.Instance.GetButton(InputManager.Button.Right) || InputManager.Instance.GetButton(InputManager.Button.Left))
             {
-                m_pressedButtons.Pop();
+                m_newDirection.x = InputManager.Instance.GetButton(InputManager.Button.Right) ? 1 : -1;
+            }
+            if (InputManager.Instance.GetButton(InputManager.Button.Up) || InputManager.Instance.GetButton(InputManager.Button.Down))
+            {
+                m_newDirection.z = InputManager.Instance.GetButton(InputManager.Button.Up) ? 1 : -1;
             }
 
-            if (m_pressedButtons.Count > 0)
-            {
-                m_newDirection = m_directionsMap[m_pressedButtons.Peek()];
-            }
-            else
-            {
-                m_newDirection = Vector3.zero;
-            }
-        }
-
-        if (m_currentDirection == Vector3.zero || m_newDirection == Vector3.zero)
-        {
-            m_currentDirection = Vector3.Lerp(m_currentDirection, m_newDirection, Time.deltaTime * m_smoothValue);
+            m_currentDirection = Vector3.Lerp(m_currentDirection, m_newDirection.normalized * timeFactor, Time.deltaTime * m_smoothValue);
         }
         else
         {
-            m_currentDirection = m_newDirection;
+            if (InputManager.Instance.GetButtonDown(InputManager.Button.Right))
+            {
+                m_pressedButtons.Push(InputManager.Button.Right);
+                m_newDirection = m_directionsMap[InputManager.Button.Right];
+            }
+            else if (InputManager.Instance.GetButtonDown(InputManager.Button.Left))
+            {
+                m_pressedButtons.Push(InputManager.Button.Left);
+                m_newDirection = m_directionsMap[InputManager.Button.Left];
+            }
+            else if (InputManager.Instance.GetButtonDown(InputManager.Button.Up))
+            {
+                m_pressedButtons.Push(InputManager.Button.Up);
+                m_newDirection = m_directionsMap[InputManager.Button.Up];
+            }
+            else if (InputManager.Instance.GetButtonDown(InputManager.Button.Down))
+            {
+                m_pressedButtons.Push(InputManager.Button.Down);
+                m_newDirection = m_directionsMap[InputManager.Button.Down];
+            }
+
+            if (m_pressedButtons.Count > 0 && InputManager.Instance.GetButtonUp(m_pressedButtons.Peek()))
+            {
+                while (m_pressedButtons.Count > 0 && !InputManager.Instance.GetButton(m_pressedButtons.Peek()))
+                {
+                    m_pressedButtons.Pop();
+                }
+
+                if (m_pressedButtons.Count > 0)
+                {
+                    m_newDirection = m_directionsMap[m_pressedButtons.Peek()];
+                }
+                else
+                {
+                    m_newDirection = Vector3.zero;
+                }
+            }
+
+            if (m_currentDirection == Vector3.zero || m_newDirection == Vector3.zero)
+            {
+                m_currentDirection = Vector3.Lerp(m_currentDirection, m_newDirection, Time.deltaTime * m_smoothValue);
+            }
+            else
+            {
+                m_currentDirection = m_newDirection;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        m_rigidBody.MovePosition(m_transform.position + m_currentDirection * m_playerSpeed * Time.deltaTime);
+        m_rigidBody.MovePosition(m_transform.position + m_currentDirection);
+        m_transform.GetChild(0).localRotation = Quaternion.LookRotation(m_currentDirection);
     }
 
     private void OnGUI()
@@ -89,6 +109,7 @@ public class MovementComponent : MonoBehaviour {
         GUILayout.Label(status);
     }
 
+    public bool  m_allowDiagonals;
     public float m_smoothValue;
     public float m_playerSpeed;
     public Dictionary<InputManager.Button, Vector3> m_directionsMap = new Dictionary<InputManager.Button, Vector3>();
@@ -97,6 +118,6 @@ public class MovementComponent : MonoBehaviour {
     private Vector3   m_currentDirection;
     private Vector3   m_newDirection;
 
-    private Transform m_transform;
-    private Rigidbody m_rigidBody;
+    private Transform  m_transform;
+    private Rigidbody  m_rigidBody;
 }
