@@ -39,7 +39,6 @@ GameObject:
   - component: {fileID: 195747340000366914}
   - component: {fileID: 65602992568453898}
   - component: {fileID: 54191225035738540}
-  - component: {fileID: 114529925546894628}
   - component: {fileID: 114467913597855116}
   m_Layer: 0
   m_Name: Guard
@@ -222,29 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashlight: {fileID: 4847783082269036}
   currentState: 0
---- !u!114 &114529925546894628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1111992538034158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a2069a3b6e761c40aa6bfc8dc0ce838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!195 &195747340000366914
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -254,8 +230,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.5
-  m_Speed: 3
-  m_Acceleration: 10
+  m_Speed: 6
+  m_Acceleration: 18
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
