@@ -30,6 +30,12 @@ public class GuardController : MonoBehaviour
         get { return navAgent; }
     }
 
+    private Transform playerTransform;
+    public Transform SeenPlayer
+    {
+        get { return playerTransform; }
+    }
+
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -60,14 +66,21 @@ public class GuardController : MonoBehaviour
     private void FixedUpdate()
     {
         bool inSigth = IsInSight(Vector3.forward, 16);
-        inSigth |= IsInSight(new Vector3(0.33f, 0,1), 16);
+        inSigth |= IsInSight(new Vector3(0.5f, 0,1), 16);
         inSigth |= IsInSight(new Vector3(0.16f, 0, 1), 16);
-        inSigth |= IsInSight(new Vector3(-0.33f, 0, 1), 16);
+        inSigth |= IsInSight(new Vector3(-0.5f, 0, 1), 16);
         inSigth |= IsInSight(new Vector3(-0.16f, 0, 1), 16);
+        inSigth |= IsInSight(new Vector3(-0.32f, 0, 1), 16);
+        inSigth |= IsInSight(new Vector3(0.32f, 0, 1), 16);
 
         if (inSigth)
         {
+            flashlight.DOLookAt(playerTransform.position, 0.3f);
             currentState = GuardState.Chase;
+        }
+        else
+        {
+            currentState = GuardState.Patrol;
         }
     }
 
@@ -82,8 +95,8 @@ public class GuardController : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
+                playerTransform = hit.transform;
                 return true;
-
             }
         }
 
