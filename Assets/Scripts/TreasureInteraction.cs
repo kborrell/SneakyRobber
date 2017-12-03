@@ -21,7 +21,9 @@ public class TreasureInteraction : MonoBehaviour {
     {
         m_playerData.RemoveTreasureFromInventory(treasure);
         treasure.gameObject.SetActive(true);
-        treasure.transform.position = m_transform.position;
+        treasure.transform.position = m_transform.position + transform.GetChild(0).forward;
+        treasure.transform.rotation = transform.GetChild(0).rotation;
+        treasure.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100000, ForceMode.Impulse);
     }
 
     void CollectRewards()

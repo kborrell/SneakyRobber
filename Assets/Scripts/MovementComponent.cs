@@ -9,6 +9,7 @@ public class MovementComponent : MonoBehaviour {
     {
         m_rigidBody = GetComponent<Rigidbody>();
         m_transform = GetComponent<Transform>();
+        m_modelTransform = m_transform.GetChild(0).GetComponent<Transform>();
         m_playerData = GetComponent<PlayerData>();
 
         m_directionsMap[InputManager.Button.Right] = Vector3.right;
@@ -91,7 +92,7 @@ public class MovementComponent : MonoBehaviour {
         m_rigidBody.MovePosition(m_transform.position + m_currentDirection);
         if (m_currentDirection != Vector3.zero)
         {
-            m_transform.GetChild(0).localRotation = Quaternion.LookRotation(m_currentDirection);
+            m_modelTransform.localRotation = Quaternion.LookRotation(m_currentDirection);
         }
     }
 
@@ -124,5 +125,6 @@ public class MovementComponent : MonoBehaviour {
 
     private PlayerData m_playerData;
     private Transform  m_transform;
+    private Transform  m_modelTransform;
     private Rigidbody  m_rigidBody;
 }

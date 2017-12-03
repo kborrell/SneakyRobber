@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247935550516340, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 4247935550516340, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -663,22 +663,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1086059487 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1403080050684544, guid: e1f334616213ced498a4bebae6197513,
-    type: 2}
-  m_PrefabInternal: {fileID: 321260514}
---- !u!114 &1086059488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1086059487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 594446d553cf3be4293c1ddbd5cd170c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1128226159
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,7 +760,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247935550516340, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 4247935550516340, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -916,7 +900,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4247935550516340, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.14
+      value: 1.35
       objectReference: {fileID: 0}
     - target: {fileID: 4247935550516340, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -945,6 +929,16 @@ Prefab:
     - target: {fileID: 1251246460719816, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
       propertyPath: m_Name
       value: TestObject1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54528265016077406, guid: 00bf6a99c566bb44fac58d6253d5939f,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 54528265016077406, guid: 00bf6a99c566bb44fac58d6253d5939f,
+        type: 2}
+      propertyPath: m_Constraints
+      value: 112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00bf6a99c566bb44fac58d6253d5939f, type: 2}
