@@ -2,6 +2,8 @@
 
 public class PatrolState : IState
 {
+    private const float SPEED = 6;
+
     NavMeshAgent navAgent;
     PatrolRoute route;
     PatrolPoint point;
@@ -15,6 +17,7 @@ public class PatrolState : IState
     {
         PatrolRoute newRoute = PatrolRoute.GetNewRoute();
         navAgent.isStopped = false;
+        navAgent.speed = SPEED;
 
         if(newRoute != route)
         {
