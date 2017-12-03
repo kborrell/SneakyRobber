@@ -18,6 +18,8 @@ public class ChaseState : IState
     {
         navAgent.speed = SPEED;
         navAgent.isStopped = false;
+
+        SoundController.Instance.PlayAudio(SoundController.AudioKey.Spotted);
     }
 
     public void Exit()

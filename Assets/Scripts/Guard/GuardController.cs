@@ -78,7 +78,7 @@ public class GuardController : MonoBehaviour
 
         if (inSigth && playerTransform != null)
         {
-            flashlight.DOLookAt(playerTransform.position, 0.3f);
+            //flashlight.DOLookAt(playerTransform.position, 0.3f, AxisConstraint.X);
             currentState = GuardState.Chase;
         }
         else
