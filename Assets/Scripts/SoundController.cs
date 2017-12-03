@@ -59,6 +59,7 @@ public class SoundController : MonoBehaviour {
     private void Start()
     {
         m_musicAudioSource.clip = m_backgroundMusic;
+        PlayBackgroundMusic();
     }
 
     public List<Audio> m_audios;

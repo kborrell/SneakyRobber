@@ -13,12 +13,16 @@ public class TreasureInteraction : MonoBehaviour {
 
     void PickTreasure(TreasureData treasure)
     {
+        SoundController.Instance.PlayAudio(SoundController.AudioKey.PickObject);
+
         m_playerData.AddTreasureToInventory(treasure);
         treasure.gameObject.SetActive(false);
     }
 
     void ThrowTreasure(TreasureData treasure)
     {
+        SoundController.Instance.PlayAudio(SoundController.AudioKey.ThrowObject);
+
         m_playerData.RemoveTreasureFromInventory(treasure);
         treasure.gameObject.SetActive(true);
         treasure.transform.position = m_transform.position + transform.GetChild(0).forward;
@@ -28,6 +32,8 @@ public class TreasureInteraction : MonoBehaviour {
 
     void CollectRewards()
     {
+        SoundController.Instance.PlayAudio(SoundController.AudioKey.CollectScore);
+
         var treasuresList = m_playerData.GetAllItems();
         for (int i = 0; i < treasuresList.Count; i++)
         {
