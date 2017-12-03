@@ -45,6 +45,7 @@ public class UIManager : MonoBehaviour {
         foreach (UIPanelData data in m_panelList)
         {
             m_panels[data.key] = data.panel;
+            data.panel.Hide();
         }
 
         ShowPanel(UIPanelKey.Gameplay);
@@ -53,5 +54,5 @@ public class UIManager : MonoBehaviour {
     public List<UIPanelData> m_panelList;
 
     private UIPanel m_currentPanel;
-    private Dictionary<UIPanelKey, UIPanel> m_panels;
+    private Dictionary<UIPanelKey, UIPanel> m_panels = new Dictionary<UIPanelKey, UIPanel>();
 }

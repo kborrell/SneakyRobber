@@ -9,6 +9,13 @@ public class TreasureInteraction : MonoBehaviour {
     {
         m_playerData = GetComponent<PlayerData>();
         m_transform = GetComponent<Transform>();
+
+        InventoryItem.OnInventoryItemSelected += OnInventoryItemSelected;
+    }
+
+    private void OnDestroy()
+    {
+        InventoryItem.OnInventoryItemSelected -= OnInventoryItemSelected;
     }
 
     void PickTreasure(TreasureData treasure)
@@ -44,16 +51,9 @@ public class TreasureInteraction : MonoBehaviour {
         m_playerData.ClearInventory();
     }
 
-    private void Update()
+    void OnInventoryItemSelected(int index)
     {
-        if (InputManager.Instance.GetButtonDown(InputManager.Button.ThrowItem))
-        {
-            var treasureList = m_playerData.GetAllItems();
-            if (treasureList.Count > 0)
-            {
-                ThrowTreasure(treasureList[treasureList.Count - 1]);
-            }
-        }
+        ThrowTreasure(m_playerData.GetTreasureDataByIndex(index));
     }
 
     private void OnTriggerEnter(Collider other)
