@@ -291,6 +291,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114171129460488552, guid: e1f334616213ced498a4bebae6197513,
+        type: 2}
+      propertyPath: m_scoreTextMesh
+      value: 
+      objectReference: {fileID: 102731364983305760, guid: a047cd7d05393c14399c039fd23dcaf3,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e1f334616213ced498a4bebae6197513, type: 2}
   m_IsPrefabParent: 0
