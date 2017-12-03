@@ -13,7 +13,7 @@ public class UIGameplayPanel : UIPanel {
     private void OnInventoryChanged(List<TreasureData> newInventory)
     {
         int numItems = newInventory.Count;
-        m_inventoryPanel.sizeDelta = new Vector2(60 * newInventory.Count, 55);
+        m_inventoryPanel.sizeDelta = new Vector2(45 * newInventory.Count, 40);
 
         int i = 0;
         while ( i < m_inventorySlots.Count)
