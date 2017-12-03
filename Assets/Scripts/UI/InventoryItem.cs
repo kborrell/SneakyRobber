@@ -13,6 +13,11 @@ public class InventoryItem : MonoBehaviour {
         m_targetKey = m_itemIndex.ToString();
     }
 
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(m_targetKey))

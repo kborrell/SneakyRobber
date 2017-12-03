@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
     public void EndGame()
     {
         StopTimer();
+        InputManager.Instance.SetInputEnabled(false);
+        UIManager.Instance.ShowPanel(UIManager.UIPanelKey.GameOver);
         Time.timeScale = 0.0f;
     }
 

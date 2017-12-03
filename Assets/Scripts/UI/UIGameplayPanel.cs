@@ -49,8 +49,8 @@ public class UIGameplayPanel : UIPanel {
 
     private void OnDestroy()
     {
-        PlayerData.OnCoinsAmountChanged += OnScoreChanged;
-        PlayerData.OnInventoryChanged += OnInventoryChanged;
+        PlayerData.OnCoinsAmountChanged -= OnScoreChanged;
+        PlayerData.OnInventoryChanged -= OnInventoryChanged;
         GameManager.OnTimerChanged -= OnTimerChanged;
     }
 
