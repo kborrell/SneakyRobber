@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class GuardController : MonoBehaviour
 {
+    const string PLAYER = "Player";
+    const string OBJECT = "Object";
+
     [SerializeField]
     private Transform flashlight;
 
@@ -73,14 +76,19 @@ public class GuardController : MonoBehaviour
         inSigth |= IsInSight(new Vector3(-0.32f, 0, 1), 16);
         inSigth |= IsInSight(new Vector3(0.32f, 0, 1), 16);
 
-        if (inSigth)
+        if (inSigth && playerTransform != null)
         {
             flashlight.DOLookAt(playerTransform.position, 0.3f);
             currentState = GuardState.Chase;
         }
         else
         {
-            currentState = GuardState.Patrol;
+            if(currentState != GuardState.Idle)
+            {
+                currentState = GuardState.Patrol;
+
+            }
+
         }
     }
 
@@ -93,7 +101,13 @@ public class GuardController : MonoBehaviour
 
         if (Physics.Raycast(flashlight.position, fwd, out hit, distance))
         {
-            if (hit.collider.CompareTag("Player"))
+            if (hit.collider.CompareTag(PLAYER))
+            {
+                playerTransform = hit.transform;
+                return true;
+            }
+
+            if (hit.collider.CompareTag(OBJECT))
             {
                 playerTransform = hit.transform;
                 return true;

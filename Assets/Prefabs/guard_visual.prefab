@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4448026859600128}
   - component: {fileID: 33925779571264258}
   - component: {fileID: 23108666037369118}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: chain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4294567847154292}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Bone010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4418693472168232}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Bone008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 4830260437691962}
   - component: {fileID: 33047645138251374}
   - component: {fileID: 23225826810650960}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: blackeyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4429403756889902}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Bone006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4560520325163490}
   - component: {fileID: 95921940267123904}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: guard_visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 4709794792894772}
   - component: {fileID: 33317747357526280}
   - component: {fileID: 23435782195788578}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4744866841349598}
   - component: {fileID: 137774412198686282}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: bodyguard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4029091706915768}
   - component: {fileID: 33814536125710468}
   - component: {fileID: 23368220969255076}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: undereye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4729261180194942}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Bone007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 4855096063290928}
   - component: {fileID: 33123819759446204}
   - component: {fileID: 23088392504776762}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: guardhat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 4144500028838270}
   - component: {fileID: 33017848965908124}
   - component: {fileID: 23324409984495762}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: gaurdeyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4520623516129872}
   - component: {fileID: 108742692276952336}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Point light (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4408879424537354}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Bone009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +246,7 @@ GameObject:
   - component: {fileID: 4107289473671494}
   - component: {fileID: 33155373453542554}
   - component: {fileID: 23244957021805944}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: most003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4867547021799492}
   - component: {fileID: 33494104538951852}
   - component: {fileID: 23444599684023412}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: chapet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585038463557804}
   m_LocalRotation: {x: -0.22030288, y: 0.083531745, z: 0.019773986, w: -0.9716471}
-  m_LocalPosition: {x: 0.85, y: 5.64, z: -10.07}
+  m_LocalPosition: {x: 0.89, y: 6.53, z: -10.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4560520325163490}
@@ -401,7 +401,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226325635563444}
   m_LocalRotation: {x: -0.15583773, y: 0.003821653, z: -0.019921795, w: -0.9875744}
-  m_LocalPosition: {x: 28.941229, y: -0.28, z: -41.185684}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4744866841349598}
@@ -848,9 +848,9 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 1.58
   m_Range: 64.4
-  m_SpotAngle: 77
+  m_SpotAngle: 65
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -866,7 +866,7 @@ Light:
   m_RenderMode: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2097152
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
