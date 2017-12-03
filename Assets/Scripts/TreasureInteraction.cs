@@ -34,9 +34,9 @@ public class TreasureInteraction : MonoBehaviour {
 
         m_playerData.RemoveTreasureFromInventory(treasure);
         treasure.gameObject.SetActive(true);
-        treasure.transform.position = m_transform.position + transform.GetChild(0).forward;
+        treasure.transform.position = m_transform.position + (transform.GetChild(0).forward * -1);
         treasure.transform.rotation = transform.GetChild(0).rotation;
-        treasure.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).forward * 100000, ForceMode.Impulse);
+        treasure.GetComponent<Rigidbody>().AddForce((transform.GetChild(0).forward * -1) * 150000, ForceMode.Impulse);
     }
 
     void CollectRewards()
@@ -64,9 +64,10 @@ public class TreasureInteraction : MonoBehaviour {
         var text = Instantiate(m_scoreTextMesh) as TextMesh;
         text.text = value.ToString();
         text.transform.parent = transform;
-        text.transform.localPosition = new Vector3(Random.Range(-2.0f, 2.0f), 2.5f, 0);
+        text.transform.localPosition = new Vector3(Random.Range(-2.0f, 2.0f), 4.0f, 0);
+        text.transform.localScale = new Vector3(0.06047976f, 0.08292421f, 0.08292421f);
 
-        text.transform.DOLocalMoveY(3.5f, 1.0f).SetEase(Ease.Linear).OnComplete(() =>
+        text.transform.DOLocalMoveY(6.0f, 1.0f).SetEase(Ease.Linear).OnComplete(() =>
         {
             Destroy(text.gameObject);
         });
