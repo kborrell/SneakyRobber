@@ -7,7 +7,7 @@ public class UIGameOverPanel : UIPanel
 {
     public void OnRestartPressed()
     {
-        Application.LoadLevel("TestMovementScene");
+        Application.LoadLevel("SceneVisual");
     }
 
     private void OnScoreChanged(int score)

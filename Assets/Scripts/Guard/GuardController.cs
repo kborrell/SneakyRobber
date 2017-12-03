@@ -97,7 +97,7 @@ public class GuardController : MonoBehaviour
         Vector3 fwd = flashlight.TransformDirection(angle);
 
         RaycastHit hit;
-        Debug.DrawLine(flashlight.position, flashlight.position + fwd * distance, Color.red);
+        Debug.DrawLine(flashlight.position - (flashlight.forward), flashlight.position + fwd * distance, Color.red);
 
         if (Physics.Raycast(flashlight.position, fwd, out hit, distance))
         {

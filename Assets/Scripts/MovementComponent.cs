@@ -98,7 +98,7 @@ public class MovementComponent : MonoBehaviour {
 
     private void OnGUI()
     {
-        printInputStackStatus();
+        //printInputStackStatus();
     }
 
     void printInputStackStatus()
