@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SoundController : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class SoundController : MonoBehaviour {
         CollectScore
     }
 
+    [Serializable]
     public struct Audio
     {
         public AudioKey key;
