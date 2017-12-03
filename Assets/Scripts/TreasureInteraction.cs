@@ -39,16 +39,19 @@ public class TreasureInteraction : MonoBehaviour {
 
     void CollectRewards()
     {
-        SoundController.Instance.PlayAudio(SoundController.AudioKey.CollectScore);
-
         var treasuresList = m_playerData.GetAllItems();
-        for (int i = 0; i < treasuresList.Count; i++)
+        if (treasuresList.Count > 0)
         {
-            var treasure = treasuresList[i];
-            m_playerData.AddScore(treasure.GetValue());
-        }
+            SoundController.Instance.PlayAudio(SoundController.AudioKey.CollectScore);
 
-        m_playerData.ClearInventory();
+            for (int i = 0; i < treasuresList.Count; i++)
+            {
+                var treasure = treasuresList[i];
+                m_playerData.AddScore(treasure.GetValue());
+            }
+
+            m_playerData.ClearInventory();
+        }   
     }
 
     void OnInventoryItemSelected(int index)
@@ -69,6 +72,14 @@ public class TreasureInteraction : MonoBehaviour {
         if (InputManager.Instance.GetButtonDown(InputManager.Button.PickItem) && other.gameObject.CompareTag("Treasure"))
         {
             PickTreasure(other.GetComponent<TreasureData>());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("SpawnZone"))
+        {
+            GameManager.Instance.StartTimer();
         }
     }
 

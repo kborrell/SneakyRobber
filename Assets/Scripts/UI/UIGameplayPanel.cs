@@ -32,16 +32,26 @@ public class UIGameplayPanel : UIPanel {
 
     }
 
+    private void OnTimerChanged(int secondsLeft)
+    {
+        int minutes = Mathf.FloorToInt(secondsLeft / 60f);
+        int seconds = Mathf.FloorToInt(secondsLeft % 60f);
+
+        m_timerLabel.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+    }
+
     private void Awake()
     {
         PlayerData.OnCoinsAmountChanged += OnScoreChanged;
         PlayerData.OnInventoryChanged += OnInventoryChanged;
+        GameManager.OnTimerChanged += OnTimerChanged;
     }
 
     private void OnDestroy()
     {
         PlayerData.OnCoinsAmountChanged += OnScoreChanged;
         PlayerData.OnInventoryChanged += OnInventoryChanged;
+        GameManager.OnTimerChanged -= OnTimerChanged;
     }
 
     public Text m_coinsLabel;
