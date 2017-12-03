@@ -96,7 +96,7 @@ public class PlayerData : MonoBehaviour {
 
     public float GetCurrentSpeed()
     {
-        return m_maxSpeed - (m_currentWeight);
+        return Mathf.Clamp(m_maxSpeed - (m_currentWeight * m_weightToSpeed), M_MIN_SPEED, m_maxSpeed);
     }
 
     private void NotifyCoinsChange()
@@ -124,6 +124,8 @@ public class PlayerData : MonoBehaviour {
 
     [SerializeField] private int m_playerScore;
     [SerializeField] private float m_currentWeight;
+	[SerializeField] private float m_weightToSpeed;
+	const float M_MIN_SPEED = 1f;
     private List<TreasureData> m_inventory = new List<TreasureData>();
 
     public delegate void OnCoinsAmountChangedDelegate(int newAmount);
