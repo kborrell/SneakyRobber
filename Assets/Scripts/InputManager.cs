@@ -15,8 +15,18 @@ public class InputManager {
         ThrowItem
     }
 
+    public void SetInputEnabled(bool enabled)
+    {
+        m_inputEnabled = enabled;
+    }
+
     public bool GetButton(Button button)
     {
+        if (!m_inputEnabled)
+        {
+            return false;
+        }
+
         if (button == Button.Left)
         {
             return Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
@@ -47,6 +57,11 @@ public class InputManager {
 
     public bool GetButtonUp(Button button)
     {
+        if (!m_inputEnabled)
+        {
+            return false;
+        }
+
         if (button == Button.Left)
         {
             return Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow);
@@ -77,6 +92,11 @@ public class InputManager {
 
     public bool GetButtonDown(Button button)
     {
+        if (!m_inputEnabled)
+        {
+            return false;
+        }
+
         if (button == Button.Left)
         {
             return Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
@@ -110,6 +130,7 @@ public class InputManager {
 
     }
 
+    private bool m_inputEnabled = false;
     private Stack<KeyCode> m_pressedKeys = new Stack<KeyCode>();
 
     public static InputManager Instance

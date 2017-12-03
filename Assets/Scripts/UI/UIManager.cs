@@ -42,17 +42,31 @@ public class UIManager : MonoBehaviour {
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    private void Start()
+    {
         foreach (UIPanelData data in m_panelList)
         {
             m_panels[data.key] = data.panel;
             data.panel.Hide();
         }
 
-        ShowPanel(UIPanelKey.Gameplay);
+        ShowPanel(UIPanelKey.MainMenu);
     }
 
     public List<UIPanelData> m_panelList;
 
     private UIPanel m_currentPanel;
     private Dictionary<UIPanelKey, UIPanel> m_panels = new Dictionary<UIPanelKey, UIPanel>();
+
+    public static UIManager Instance { get; private set; }
 }
