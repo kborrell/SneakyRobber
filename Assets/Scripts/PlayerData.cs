@@ -8,6 +8,8 @@ public class PlayerData : MonoBehaviour {
     {
         m_playerScore = 0;
         ClearInventory();
+
+        NotifyCoinsChange();
     }
 
     public int GetNumItems()
@@ -34,6 +36,8 @@ public class PlayerData : MonoBehaviour {
     {
         m_inventory.Add(data);
         AddWeight(data.GetWeight());
+
+        NotifyInventoryChange();
     }
 
     public void RemoveTreasureFromInventory(int index)
@@ -50,6 +54,8 @@ public class PlayerData : MonoBehaviour {
         {
             m_inventory.Remove(data);
             RemoveWeight(data.GetWeight());
+
+            NotifyInventoryChange();
         }
     }
 
@@ -57,11 +63,15 @@ public class PlayerData : MonoBehaviour {
     {
         m_inventory.Clear();
         m_currentWeight = 0.0f;
+
+        NotifyInventoryChange();
     }
 
     public void AddScore(int score)
     {
         m_playerScore += score;
+
+        NotifyCoinsChange();
     }
 
     public int GetScore()
@@ -89,9 +99,36 @@ public class PlayerData : MonoBehaviour {
         return m_maxSpeed - (m_currentWeight);
     }
 
+    private void NotifyCoinsChange()
+    {
+        if (OnCoinsAmountChanged != null)
+        {
+            OnCoinsAmountChanged(m_playerScore);
+        }
+    }
+
+    private void NotifyInventoryChange()
+    {
+        if (OnInventoryChanged != null)
+        {
+            OnInventoryChanged(GetAllItems());
+        }
+    }
+
+    private void Awake()
+    {
+        ResetPlayerData();
+    }
+
     public float m_maxSpeed;
 
     [SerializeField] private int m_playerScore;
     [SerializeField] private float m_currentWeight;
     private List<TreasureData> m_inventory = new List<TreasureData>();
+
+    public delegate void OnCoinsAmountChangedDelegate(int newAmount);
+    public static OnCoinsAmountChangedDelegate OnCoinsAmountChanged;
+
+    public delegate void OnInventoryChangedDelegate(List<TreasureData> newInventory);
+    public static OnInventoryChangedDelegate OnInventoryChanged;
 }

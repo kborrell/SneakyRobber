@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Treasure
   - CollectZone
+  - SpawnZone
   layers:
   - Default
   - TransparentFX
