@@ -1,0 +1,147 @@
+fileFormatVersion: 2
+guid: 881ba5d6ebb833f4eaf2b35dbee003eb
+timeCreated: 1512299601
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: blackeyes
+    100002: bodyguard
+    100004: Bone006
+    100006: Bone007
+    100008: Bone008
+    100010: Bone009
+    100012: Bone010
+    100014: chain
+    100016: gaurdeyes
+    100018: //RootNode
+    100020: guardhat
+    100022: most003
+    100024: ring
+    100026: undereye
+    400000: blackeyes
+    400002: bodyguard
+    400004: Bone006
+    400006: Bone007
+    400008: Bone008
+    400010: Bone009
+    400012: Bone010
+    400014: chain
+    400016: gaurdeyes
+    400018: //RootNode
+    400020: guardhat
+    400022: most003
+    400024: ring
+    400026: undereye
+    2300000: blackeyes
+    2300002: chain
+    2300004: gaurdeyes
+    2300006: guardhat
+    2300008: most003
+    2300010: ring
+    2300012: undereye
+    3300000: blackeyes
+    3300002: chain
+    3300004: gaurdeyes
+    3300006: guardhat
+    3300008: most003
+    3300010: ring
+    3300012: undereye
+    4300000: bodyguard
+    4300002: gaurdeyes
+    4300004: ring
+    4300006: chain
+    4300008: blackeyes
+    4300010: undereye
+    4300012: most003
+    4300014: guardhat
+    9500000: //RootNode
+    13700000: bodyguard
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 01 - Default
+    second: {fileID: 2100000, guid: 3d44a721a75f59b458bbde43afd02af6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 604fe67594ba1e04e8a3e9159abdb86a, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.25
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

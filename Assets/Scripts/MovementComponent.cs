@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -92,7 +92,7 @@ public class MovementComponent : MonoBehaviour {
         m_rigidBody.MovePosition(m_transform.position + m_currentDirection);
         if (m_currentDirection != Vector3.zero)
         {
-            m_modelTransform.localRotation = Quaternion.LookRotation(m_currentDirection);
+            m_transform.GetChild(0).localRotation = Quaternion.LookRotation(-m_currentDirection);
         }
     }
 
