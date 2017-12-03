@@ -40,6 +40,22 @@ public class UIManager : MonoBehaviour {
         }
     }
 
+    public void ShowInfoTooltip(TreasureData data, Vector3 position)
+    {
+        m_infoCard.SetItemData(data);
+
+        var canvasSize = GetComponent<RectTransform>().sizeDelta;
+        Vector2 screenPoint = RectTransformUtility.WorldToScreenPoint(Camera.main, position);
+        m_infoCard.GetComponent<RectTransform>().anchoredPosition = screenPoint - canvasSize / 2.0f;
+
+        m_infoCard.gameObject.SetActive(true);
+    }
+
+    public void HideInfoTooltip()
+    {
+        m_infoCard.gameObject.SetActive(false);
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -61,9 +77,11 @@ public class UIManager : MonoBehaviour {
         }
 
         ShowPanel(UIPanelKey.MainMenu);
+        m_infoCard.gameObject.SetActive(false);
     }
 
     public List<UIPanelData> m_panelList;
+    public ItemInfoCard m_infoCard;
 
     private UIPanel m_currentPanel;
     private Dictionary<UIPanelKey, UIPanel> m_panels = new Dictionary<UIPanelKey, UIPanel>();

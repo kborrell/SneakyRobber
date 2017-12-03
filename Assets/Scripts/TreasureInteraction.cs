@@ -22,6 +22,7 @@ public class TreasureInteraction : MonoBehaviour {
     {
         SoundController.Instance.PlayAudio(SoundController.AudioKey.PickObject);
 
+        UIManager.Instance.HideInfoTooltip();
         m_playerData.AddTreasureToInventory(treasure);
         treasure.gameObject.SetActive(false);
     }
@@ -65,6 +66,10 @@ public class TreasureInteraction : MonoBehaviour {
         {
             CollectRewards();
         }
+        else if (other.CompareTag("Treasure"))
+        { 
+            UIManager.Instance.ShowInfoTooltip(other.GetComponent<TreasureData>(), other.transform.position);
+        }
     }
 
     void OnTriggerStay(Collider other)
@@ -80,6 +85,10 @@ public class TreasureInteraction : MonoBehaviour {
         if (other.CompareTag("SpawnZone"))
         {
             GameManager.Instance.StartTimer();
+        }
+        else if (other.CompareTag("Treasure"))
+        {
+            UIManager.Instance.HideInfoTooltip();
         }
     }
 
