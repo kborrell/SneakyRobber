@@ -45,7 +45,7 @@ public class InputManager {
         }
         else if (button == Button.PickItem)
         {
-            return Input.GetKey(KeyCode.E);
+            return Input.GetKey(KeyCode.Space);
         }
         else if (button == Button.ThrowItem)
         {
@@ -80,7 +80,7 @@ public class InputManager {
         }
         else if (button == Button.PickItem)
         {
-            return Input.GetKeyUp(KeyCode.E);
+            return Input.GetKeyUp(KeyCode.Space);
         }
         else if (button == Button.ThrowItem)
         {
@@ -115,7 +115,7 @@ public class InputManager {
         }
         else if (button == Button.PickItem)
         {
-            return Input.GetKeyDown(KeyCode.E);
+            return Input.GetKeyDown(KeyCode.Space);
         }
         else if (button == Button.ThrowItem)
         {

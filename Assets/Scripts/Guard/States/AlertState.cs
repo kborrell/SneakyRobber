@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class AlertState : IState
 {
-    private const float SPEED = 12;
+    private const float SPEED = 8;
 
     NavMeshAgent navAgent;
     GuardController guard;
@@ -27,6 +27,6 @@ public class AlertState : IState
 
     public void Update()
     {
-        navAgent.destination = guard.SeenPlayer.position;
+        navAgent.destination = guard.SeenTransform.position;
     }
 }

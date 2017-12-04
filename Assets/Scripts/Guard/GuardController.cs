@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class GuardController : MonoBehaviour
 {
     const string PLAYER = "Player";
-    const string OBJECT = "Object";
+    const string OBJECT = "TreasureMisplaced";
     const float DISTANCE = 32;
 
     [SerializeField]
@@ -34,11 +34,13 @@ public class GuardController : MonoBehaviour
         get { return navAgent; }
     }
 
-    private Transform playerTransform;
-    public Transform SeenPlayer
+    private Transform detectedTransform;
+    public Transform SeenTransform
     {
-        get { return playerTransform; }
+        get { return detectedTransform; }
     }
+
+    bool seenPlayer;
 
     private void Awake()
     {
@@ -47,6 +49,7 @@ public class GuardController : MonoBehaviour
         guardStates.Add(GuardState.Idle, new IdleState(this));
         guardStates.Add(GuardState.Patrol, new PatrolState(this));
         guardStates.Add(GuardState.Chase, new ChaseState(this));
+        guardStates.Add(GuardState.Alert, new AlertState(this));
     }
 
     private void Start()
@@ -81,14 +84,17 @@ public class GuardController : MonoBehaviour
             inSigth |= IsInSight(new Vector3(angle * i, 0, 1));
         }
 
-        if (inSigth && playerTransform != null)
+        if (inSigth )
         {
-            flashlight.DOLookAt(playerTransform.position, 0.3f, AxisConstraint.Y);
-            currentState = GuardState.Chase;
+            flashlight.DOLookAt(SeenTransform.position, 0.3f, AxisConstraint.Y);
+
+            currentState = seenPlayer ? GuardState.Chase : GuardState.Alert;
         }
         else
         {
-            if(currentState != GuardState.Idle)
+            seenPlayer = false;
+
+            if (currentState != GuardState.Idle)
             {
                 currentState = GuardState.Patrol;
             }
@@ -108,13 +114,14 @@ public class GuardController : MonoBehaviour
         {
             if (hit.collider.CompareTag(PLAYER))
             {
-                playerTransform = hit.transform;
+                seenPlayer = true;
+                detectedTransform = hit.transform;
                 return true;
             }
 
             if (hit.collider.CompareTag(OBJECT))
             {
-                playerTransform = hit.transform;
+                detectedTransform = hit.transform;
                 return true;
             }
         }

@@ -37,6 +37,7 @@ public class TreasureInteraction : MonoBehaviour {
         treasure.transform.position = m_transform.position + (transform.GetChild(0).forward * -1);
         treasure.transform.rotation = transform.GetChild(0).rotation;
         treasure.GetComponent<Rigidbody>().AddForce((transform.GetChild(0).forward * -1) * 150000, ForceMode.Impulse);
+        treasure.tag = "TreasureMisplaced";
     }
 
     void CollectRewards()
@@ -84,7 +85,7 @@ public class TreasureInteraction : MonoBehaviour {
         {
             CollectRewards();
         }
-        else if (other.CompareTag("Treasure"))
+        else if (other.CompareTag("Treasure") || other.CompareTag("TreasureMisplaced"))
         { 
             UIManager.Instance.ShowInfoTooltip(other.GetComponent<TreasureData>(), other.transform.position);
         }
@@ -92,7 +93,7 @@ public class TreasureInteraction : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        if (InputManager.Instance.GetButtonDown(InputManager.Button.PickItem) && other.gameObject.CompareTag("Treasure"))
+        if (InputManager.Instance.GetButtonDown(InputManager.Button.PickItem) && (other.gameObject.CompareTag("Treasure") || other.gameObject.CompareTag("TreasureMisplaced")))
         {
             PickTreasure(other.GetComponent<TreasureData>());
         }
@@ -104,7 +105,7 @@ public class TreasureInteraction : MonoBehaviour {
         {
             GameManager.Instance.StartTimer();
         }
-        else if (other.CompareTag("Treasure"))
+        else if (other.CompareTag("Treasure") || other.gameObject.CompareTag("TreasureMisplaced"))
         {
             UIManager.Instance.HideInfoTooltip();
         }

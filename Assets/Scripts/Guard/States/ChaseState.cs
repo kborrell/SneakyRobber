@@ -29,9 +29,9 @@ public class ChaseState : IState
 
     public void Update()
     {
-        navAgent.destination = guard.SeenPlayer.position;
+        navAgent.destination = guard.SeenTransform.position;
 
-        if (Vector3.Distance(navAgent.transform.position, guard.SeenPlayer.position) < 2.5f)
+        if (Vector3.Distance(navAgent.transform.position, guard.SeenTransform.position) < 2.5f)
         {
             GameManager.Instance.EndGame();
         }
