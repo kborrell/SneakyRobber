@@ -99,7 +99,7 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 1
     agentHeight: 2
-    agentSlope: 45
+    agentSlope: 32
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -907,19 +907,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4257483413544212, guid: f750be1e38dca4f4b847181cfa6ad420, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.010048318
+      value: 0.010048319
       objectReference: {fileID: 0}
     - target: {fileID: 4257483413544212, guid: f750be1e38dca4f4b847181cfa6ad420, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.07652216
+      value: 0.076522164
       objectReference: {fileID: 0}
     - target: {fileID: 4257483413544212, guid: f750be1e38dca4f4b847181cfa6ad420, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.003553325
+      value: -0.0035533253
       objectReference: {fileID: 0}
     - target: {fileID: 4257483413544212, guid: f750be1e38dca4f4b847181cfa6ad420, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.9970109
+      value: 0.99701095
       objectReference: {fileID: 0}
     - target: {fileID: 4257483413544212, guid: f750be1e38dca4f4b847181cfa6ad420, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4146,6 +4146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41c2dee65765a045b9742d6dffd5946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  guardPrefab: {fileID: 1698899251228800, guid: f750be1e38dca4f4b847181cfa6ad420,
+    type: 2}
+  guardSpawnPoint: {fileID: 663702199}
   m_timer: 180
 --- !u!4 &633232499
 Transform:
@@ -4368,6 +4371,34 @@ Transform:
   m_PrefabParentObject: {fileID: 4333075544112668, guid: faae9a4c2b5e3e8468d6da8c6ba4b44c,
     type: 2}
   m_PrefabInternal: {fileID: 653824945}
+--- !u!1 &663702198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 663702199}
+  m_Layer: 0
+  m_Name: GuardSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &663702199
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663702198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 30, y: 1.5, z: -58.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &664335670
 Prefab:
   m_ObjectHideFlags: 0
@@ -12174,6 +12205,11 @@ Prefab:
         type: 2}
       propertyPath: m_Speed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 195053822920524924, guid: f750be1e38dca4f4b847181cfa6ad420,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f750be1e38dca4f4b847181cfa6ad420, type: 2}

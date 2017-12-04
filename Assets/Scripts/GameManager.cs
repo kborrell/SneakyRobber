@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject guardPrefab;
+    [SerializeField]
+    private Transform guardSpawnPoint;
+
     public void StartTimer()
     {  
         if (m_timerStopped)
@@ -35,6 +40,11 @@ public class GameManager : MonoBehaviour {
         InputManager.Instance.SetInputEnabled(false);
         UIManager.Instance.ShowPanel(UIManager.UIPanelKey.GameOver);
         Time.timeScale = 0.0f;
+    }
+
+    public void AddGuard()
+    {
+        GameObject guard = Instantiate(guardPrefab, guardSpawnPoint);
     }
 
     private void Awake()

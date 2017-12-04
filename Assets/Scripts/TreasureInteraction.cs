@@ -55,7 +55,9 @@ public class TreasureInteraction : MonoBehaviour {
             }
 
             m_playerData.ClearInventory();
-        }   
+
+            GameManager.Instance.AddGuard();
+        }
     }
 
     IEnumerator ShowScore(int index, int value)
