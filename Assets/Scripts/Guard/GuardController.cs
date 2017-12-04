@@ -70,6 +70,14 @@ public class GuardController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (currentState != GuardState.Chase && other.CompareTag("TreasureMisplaced"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
+
     private void FixedUpdate()
     {
         bool inSigth = IsInSight(Vector3.forward);

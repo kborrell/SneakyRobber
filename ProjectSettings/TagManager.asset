@@ -8,6 +8,7 @@ TagManager:
   - CollectZone
   - SpawnZone
   - Object
+  - TreasureMisplaced
   layers:
   - Default
   - TransparentFX

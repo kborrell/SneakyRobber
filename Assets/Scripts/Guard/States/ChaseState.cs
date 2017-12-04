@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 public class ChaseState : IState
 {
-    private const float SPEED = 12;
+    private const float SPEED = 19;
 
     NavMeshAgent navAgent;
     GuardController guard;
@@ -31,7 +31,7 @@ public class ChaseState : IState
     {
         navAgent.destination = guard.SeenTransform.position;
 
-        if (Vector3.Distance(navAgent.transform.position, guard.SeenTransform.position) < 2.5f)
+        if (Vector3.Distance(navAgent.transform.position, guard.SeenTransform.position) < 3f)
         {
             GameManager.Instance.EndGame();
         }
