@@ -17,7 +17,7 @@ ModelImporter:
       name: 08 - Default
     second: {fileID: 2100000, guid: d52d9b5fa6d22514d90564f2ab405c61, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0

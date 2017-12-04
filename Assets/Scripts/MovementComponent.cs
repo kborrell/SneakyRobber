@@ -18,7 +18,7 @@ public class MovementComponent : MonoBehaviour {
         m_directionsMap[InputManager.Button.Down] = Vector3.back;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (m_allowDiagonals)
         {
@@ -85,10 +85,9 @@ public class MovementComponent : MonoBehaviour {
                 m_currentDirection = m_newDirection;
             }
         }
-    }
+    
 
-    private void FixedUpdate()
-    {
+   
         m_rigidBody.MovePosition(m_transform.position + m_currentDirection);
         if (m_currentDirection != Vector3.zero)
         {
