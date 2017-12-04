@@ -8,6 +8,7 @@ public class GuardController : MonoBehaviour
 {
     const string PLAYER = "Player";
     const string OBJECT = "Object";
+    const float DISTANCE = 32;
 
     [SerializeField]
     private Transform flashlight;
@@ -68,17 +69,21 @@ public class GuardController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        bool inSigth = IsInSight(Vector3.forward, 16);
-        inSigth |= IsInSight(new Vector3(0.5f, 0,1), 16);
-        inSigth |= IsInSight(new Vector3(0.16f, 0, 1), 16);
-        inSigth |= IsInSight(new Vector3(-0.5f, 0, 1), 16);
-        inSigth |= IsInSight(new Vector3(-0.16f, 0, 1), 16);
-        inSigth |= IsInSight(new Vector3(-0.32f, 0, 1), 16);
-        inSigth |= IsInSight(new Vector3(0.32f, 0, 1), 16);
+        bool inSigth = IsInSight(Vector3.forward);
+
+        float margin = 0.5f;
+        float steps = 5;
+        float angle = margin / steps;
+
+        for (int i = 0; i <= steps; i++)
+        {
+            inSigth |= IsInSight(new Vector3(-angle * i, 0, 1));
+            inSigth |= IsInSight(new Vector3(angle * i, 0, 1));
+        }
 
         if (inSigth && playerTransform != null)
         {
-            //flashlight.DOLookAt(playerTransform.position, 0.3f, AxisConstraint.X);
+            flashlight.DOLookAt(playerTransform.position, 0.3f, AxisConstraint.Y);
             currentState = GuardState.Chase;
         }
         else
@@ -86,20 +91,20 @@ public class GuardController : MonoBehaviour
             if(currentState != GuardState.Idle)
             {
                 currentState = GuardState.Patrol;
-
             }
-
         }
     }
 
-    private bool IsInSight(Vector3 angle, float distance)
+    private bool IsInSight(Vector3 angle)
     {
         Vector3 fwd = flashlight.TransformDirection(angle);
 
-        RaycastHit hit;
-        Debug.DrawLine(flashlight.position - (flashlight.forward), flashlight.position + fwd * distance, Color.red);
+        fwd.y = 0;
 
-        if (Physics.Raycast(flashlight.position, fwd, out hit, distance))
+        RaycastHit hit;
+        Debug.DrawLine(flashlight.position - (flashlight.forward), flashlight.position + fwd * DISTANCE, Color.red);
+
+        if (Physics.Raycast(flashlight.position, fwd, out hit, DISTANCE))
         {
             if (hit.collider.CompareTag(PLAYER))
             {

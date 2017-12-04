@@ -369,13 +369,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1092384380734668}
-  m_LocalRotation: {x: 0.043619405, y: 0, z: 0, w: 0.9990483}
-  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalRotation: {x: 0.13917309, y: 0, z: 0, w: 0.9902681}
+  m_LocalPosition: {x: 0, y: 3.1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4639554220324268}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 5, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16, y: 0, z: 0}
 --- !u!4 &4354981600975412
 Transform:
   m_ObjectHideFlags: 1
@@ -453,7 +453,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1698899251228800}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -16.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4050277194302794}
@@ -947,7 +947,7 @@ Light:
     m_Bits: 2097152
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -963,7 +963,7 @@ Light:
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 5
-  m_Range: 16
+  m_Range: 30
   m_SpotAngle: 60
   m_CookieSize: 10
   m_Shadows:
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashlight: {fileID: 4257483413544212}
-  currentState: 0
+  currentState: 1
 --- !u!136 &136551069873765312
 CapsuleCollider:
   m_ObjectHideFlags: 1
